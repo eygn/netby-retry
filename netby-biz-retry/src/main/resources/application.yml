@@ -1,0 +1,47 @@
+project:
+  name: netby-retry
+server:
+  port: 8000
+
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: netby-retry
+    version: 1.0.0
+    environment: dev
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+    default-property-inclusion: non_null
+    time-zone: GMT+8
+    locale: zh_CN
+#  datasource:
+#    druid:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      password: abc123456
+#      url: jdbc:mysql://47.98.48.96:3306/design
+#      username: root
+  cloud:
+    nacos:
+      config:
+        #server-addr: netbyg.qicp.vip:80 # 主配置服务器地址
+        server-addr: 192.168.0.200:8848 # 主配置服务器地址
+        group: DEFAULT_GROUP # 主配置 group-id  这里约定环境参数
+        namespace: dev
+  config:
+    import:
+      - optional:nacos:mysql.yml
+
+# mybatis 配置
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    # 驼峰到下划线的映射
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-value: 0
+      logic-not-delete-value: 1
