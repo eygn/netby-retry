@@ -17,12 +17,6 @@ spring:
     default-property-inclusion: non_null
     time-zone: GMT+8
     locale: zh_CN
-#  datasource:
-#    druid:
-#      driver-class-name: com.mysql.cj.jdbc.Driver
-#      password: abc123456
-#      url: jdbc:mysql://47.98.48.96:3306/design
-#      username: root
   cloud:
     nacos:
       config:
