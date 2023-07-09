@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.netby.retry.mybatis.bizretry.BizRetryMapper">
+
+    <resultMap type="com.netby.retry.mybatis.bizretry.BizRetryDO" id="BizRetryMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="bizNo" column="biz_no" jdbcType="VARCHAR"/>
+        <result property="bizType" column="biz_type" jdbcType="VARCHAR"/>
+        <result property="bizParams" column="biz_params" jdbcType="VARCHAR"/>
+        <result property="retryType" column="retry_type" jdbcType="VARCHAR"/>
+        <result property="retryCount" column="retry_count" jdbcType="INTEGER"/>
+        <result property="retryStatus" column="retry_status" jdbcType="INTEGER"/>
+        <result property="comment" column="comment" jdbcType="VARCHAR"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="modified" column="modified" jdbcType="TIMESTAMP"/>
+        <result property="flag" column="flag" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into design.biz_retry(biz_no, biz_type, biz_params, retry_type, retry_count, retry_status, comment, created, modified, flag)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.bizNo}, #{entity.bizType}, #{entity.bizParams}, #{entity.retryType}, #{entity.retryCount}, #{entity.retryStatus}, #{entity.comment}, #{entity.created}, #{entity.modified}, #{entity.flag})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into design.biz_retry(biz_no, biz_type, biz_params, retry_type, retry_count, retry_status, comment, created, modified, flag)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bizNo}, #{entity.bizType}, #{entity.bizParams}, #{entity.retryType}, #{entity.retryCount}, #{entity.retryStatus}, #{entity.comment}, #{entity.created}, #{entity.modified}, #{entity.flag})
+        </foreach>
+        on duplicate key update
+         biz_no = values(biz_no) , biz_type = values(biz_type) , biz_params = values(biz_params) , retry_type = values(retry_type) , retry_count = values(retry_count) , retry_status = values(retry_status) , comment = values(comment) , created = values(created) , modified = values(modified) , flag = values(flag)     </insert>
+
+</mapper>
+
