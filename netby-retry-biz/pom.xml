@@ -129,7 +129,7 @@
 
         <dependency>
             <groupId>com.netby</groupId>
-            <artifactId>netby-common</artifactId>
+            <artifactId>netby-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

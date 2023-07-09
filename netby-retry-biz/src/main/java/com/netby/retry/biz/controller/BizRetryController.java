@@ -4,7 +4,7 @@ package com.netby.retry.biz.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.netby.retry.biz.annotation.LogPrinter;
+import com.netby.core.annotation.LogPrinter;
 import com.netby.retry.biz.entity.BizRetryDO;
 import com.netby.retry.biz.service.BizRetryService;
 import com.netby.common.vo.Response;
