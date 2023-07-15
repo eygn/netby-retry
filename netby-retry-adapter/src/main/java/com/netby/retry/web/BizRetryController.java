@@ -1,7 +1,6 @@
 package com.netby.retry.web;
 
 import com.alibaba.cola.dto.Response;
-import com.netby.common.util.JsonUtil;
 import com.netby.core.annotation.LogPrinter;
 import com.netby.retry.api.BizRetryServiceI;
 import com.netby.retry.dto.BizRetryAddCmd;
@@ -21,7 +20,6 @@ public class BizRetryController {
     @LogPrinter
     @PostMapping(value = "/bizretry")
     public Response addBizRetry(@RequestBody BizRetryAddCmd bizRetryAddCmd) {
-        log.info("[addBizRetry]入参:{}", JsonUtil.writeValueAsString(bizRetryAddCmd));
         return bizRetryService.addBizRetry(bizRetryAddCmd);
     }
 }

@@ -3,6 +3,9 @@ project:
 server:
   port: 8000
 
+netby:
+  log:
+    enable: true
 
 spring:
   profiles:
