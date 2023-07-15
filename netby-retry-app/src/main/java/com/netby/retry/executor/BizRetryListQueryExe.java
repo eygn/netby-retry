@@ -1,12 +1,9 @@
-package com.netby.retry.executor.executor.query;
+package com.netby.retry.executor;
 
 import com.alibaba.cola.dto.MultiResponse;
 import com.netby.retry.domain.retry.gateway.BizRetryGateway;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.data.BizRrtryDTO;
-import java.util.ArrayList;
-import java.util.List;
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
