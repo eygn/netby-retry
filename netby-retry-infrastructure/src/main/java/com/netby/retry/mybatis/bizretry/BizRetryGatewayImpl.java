@@ -1,7 +1,10 @@
 package com.netby.retry.mybatis.bizretry;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.netby.common.vo.BaseVO;
+import com.netby.common.vo.PageResult;
+import com.netby.common.vo.QueryPage;
 import com.netby.retry.domain.retry.BizRetry;
 import com.netby.retry.domain.retry.gateway.BizRetryGateway;
 import lombok.RequiredArgsConstructor;
@@ -25,9 +28,15 @@ public class BizRetryGatewayImpl implements BizRetryGateway {
     }
 
     @Override
-    public List<BizRetry> listByBizType(String bizType) {
-        List<BizRetryDO> list = bizRetryMapper.selectList(new LambdaQueryWrapper<>(BizRetryDO.class).eq(BizRetryDO::getBizType, bizType));
-        return BaseVO.copyListTo(list, BizRetry.class);
+    public PageResult<BizRetry> listByBizType(String bizType, QueryPage queryPage) {
+        LambdaQueryWrapper queryWrapper = new LambdaQueryWrapper<>(BizRetryDO.class).eq(BizRetryDO::getBizType, bizType);
+        Page<BizRetryDO> page = bizRetryMapper.selectPage(new Page<>(queryPage.getPageNo(), queryPage.getPageSize()), queryWrapper);
+        PageResult<BizRetry> pageResult = new PageResult<>();
+        pageResult.setCurrentPage(page.getCurrent());
+        pageResult.setPages(page.getPages());
+        pageResult.setRecords(BaseVO.copyListTo(page.getRecords(), BizRetry.class));
+        pageResult.setTotalCount(bizRetryMapper.selectCount(queryWrapper));
+        return pageResult;
     }
 
     @Override
@@ -36,9 +45,9 @@ public class BizRetryGatewayImpl implements BizRetryGateway {
     }
 
     @Override
-    public boolean add(BizRetry bizRetry) {
+    public BizRetry add(BizRetry bizRetry) {
         BizRetryDO bizRetryDO = bizRetry.copyTo(BizRetryDO.class);
         bizRetryMapper.insert(bizRetryDO);
-        return true;
+        return BaseVO.copyTo(bizRetryDO, BizRetry.class);
     }
 }

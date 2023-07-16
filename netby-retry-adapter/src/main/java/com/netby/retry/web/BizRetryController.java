@@ -1,7 +1,7 @@
 package com.netby.retry.web;
 
-import com.alibaba.cola.dto.MultiResponse;
-import com.alibaba.cola.dto.Response;
+import com.netby.common.vo.PageResult;
+import com.netby.common.vo.Response;
 import com.netby.core.annotation.LogPrinter;
 import com.netby.retry.api.BizRetryServiceI;
 import com.netby.retry.dto.BizRetryAddCmd;
@@ -37,9 +37,9 @@ public class BizRetryController {
         return bizRetryService.updateRetry(bizRetryUpdateCmd);
     }
 
-    @LogPrinter
-    @GetMapping(value = "/bizretry/listByBizType")
-    MultiResponse<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery) {
+    @LogPrinter(ignoreResp = {"root"})
+    @PostMapping(value = "/bizretry/listByBizType")
+    PageResult<BizRetryDTO> listByBizType(@RequestBody BizRetryListQuery bizRetryListQuery) {
         return bizRetryService.listByBizType(bizRetryListQuery);
     }
 

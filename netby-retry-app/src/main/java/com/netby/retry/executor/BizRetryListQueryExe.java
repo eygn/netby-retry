@@ -1,7 +1,6 @@
 package com.netby.retry.executor;
 
-import com.alibaba.cola.dto.MultiResponse;
-import com.netby.common.vo.BaseVO;
+import com.netby.common.vo.PageResult;
 import com.netby.retry.domain.retry.BizRetry;
 import com.netby.retry.domain.retry.gateway.BizRetryGateway;
 import com.netby.retry.dto.BizRetryListQuery;
@@ -9,8 +8,6 @@ import com.netby.retry.dto.data.BizRetryDTO;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 
 /**
@@ -24,8 +21,8 @@ public class BizRetryListQueryExe {
     @Getter
     private final BizRetryGateway bizRetryGateway;
 
-    public MultiResponse<BizRetryDTO> execute(BizRetryListQuery cmd) {
-        List<BizRetry> bizRetryList = bizRetryGateway.listByBizType(cmd.getBizType());
-        return MultiResponse.of(BaseVO.copyListTo(bizRetryList, BizRetryDTO.class));
+    public PageResult<BizRetryDTO> execute(BizRetryListQuery cmd) {
+        PageResult<BizRetry> bizRetryPageResult = bizRetryGateway.listByBizType(cmd.getBizType(), cmd);
+        return PageResult.of(bizRetryPageResult, BizRetryDTO.class);
     }
 }

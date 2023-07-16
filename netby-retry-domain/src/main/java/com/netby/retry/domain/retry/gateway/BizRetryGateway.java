@@ -1,8 +1,8 @@
 package com.netby.retry.domain.retry.gateway;
 
+import com.netby.common.vo.PageResult;
+import com.netby.common.vo.QueryPage;
 import com.netby.retry.domain.retry.BizRetry;
-
-import java.util.List;
 
 /**
  * @author Elvan.baiang
@@ -24,7 +24,7 @@ public interface BizRetryGateway {
      * @param bizType
      * @return
      */
-    List<BizRetry> listByBizType(String bizType);
+    PageResult<BizRetry> listByBizType(String bizType, QueryPage queryPage);
 
     /**
      * 更新重试
@@ -40,5 +40,5 @@ public interface BizRetryGateway {
      * @param bizRetry
      * @return
      */
-    boolean add(BizRetry bizRetry);
+    BizRetry add(BizRetry bizRetry);
 }

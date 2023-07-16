@@ -1,6 +1,6 @@
 package com.netby.retry.dto;
 
-import com.alibaba.cola.dto.Query;
+import com.netby.common.vo.QueryPage;
 import lombok.Data;
 
 /**
@@ -8,7 +8,7 @@ import lombok.Data;
  * @date 2023/7/16 09:58
  */
 @Data
-public class BizRetryListQuery extends Query {
+public class BizRetryListQuery extends QueryPage {
 
     /**
      * 业务类型

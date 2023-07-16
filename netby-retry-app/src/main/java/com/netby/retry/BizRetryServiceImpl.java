@@ -1,8 +1,8 @@
 package com.netby.retry;
 
-import com.alibaba.cola.dto.MultiResponse;
-import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.catchlog.CatchAndLog;
+import com.netby.common.vo.PageResult;
+import com.netby.common.vo.Response;
 import com.netby.retry.api.BizRetryServiceI;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
@@ -44,7 +44,7 @@ public class BizRetryServiceImpl implements BizRetryServiceI {
     }
 
     @Override
-    public MultiResponse<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery) {
+    public PageResult<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery) {
         return bizRetryListQueryExe.execute(bizRetryListQuery);
     }
 

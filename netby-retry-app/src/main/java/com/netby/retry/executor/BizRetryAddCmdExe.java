@@ -1,8 +1,8 @@
 
 package com.netby.retry.executor;
 
-import com.alibaba.cola.dto.Response;
 import com.netby.common.vo.BaseVO;
+import com.netby.common.vo.Response;
 import com.netby.retry.domain.retry.BizRetry;
 import com.netby.retry.domain.retry.gateway.BizRetryGateway;
 import com.netby.retry.dto.BizRetryAddCmd;
@@ -21,8 +21,7 @@ public class BizRetryAddCmdExe {
     private final BizRetryGateway bizRetryGateway;
 
     public Response execute(BizRetryAddCmd cmd) {
-        bizRetryGateway.add(BaseVO.copyTo(cmd.getBizRetryDTO(), BizRetry.class));
-        return Response.buildSuccess();
+        return Response.success(bizRetryGateway.add(BaseVO.copyTo(cmd.getBizRetryDTO(), BizRetry.class)));
     }
 
 }

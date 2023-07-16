@@ -1,7 +1,7 @@
 package com.netby.retry.api;
 
-import com.alibaba.cola.dto.MultiResponse;
-import com.alibaba.cola.dto.Response;
+import com.netby.common.vo.PageResult;
+import com.netby.common.vo.Response;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
@@ -35,6 +35,6 @@ public interface BizRetryServiceI {
      * @param bizRetryListQuery
      * @return
      */
-    MultiResponse<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery);
+    PageResult<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery);
 
 }
