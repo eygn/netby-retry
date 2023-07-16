@@ -10,6 +10,6 @@ import lombok.Data;
 @Data
 public class BizRetryUpdateCmd {
 
-    private BizRetryDTO bizRrtryDTO;
+    private BizRetryDTO bizRetryDTO;
 
 }
