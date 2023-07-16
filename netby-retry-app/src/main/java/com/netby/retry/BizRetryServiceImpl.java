@@ -1,10 +1,13 @@
 package com.netby.retry;
 
+import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.catchlog.CatchAndLog;
 import com.netby.retry.api.BizRetryServiceI;
 import com.netby.retry.dto.BizRetryAddCmd;
+import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
+import com.netby.retry.dto.data.BizRetryDTO;
 import com.netby.retry.executor.BizRetryUpdateCmdExe;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +17,10 @@ import com.netby.retry.executor.BizRetryListQueryExe;
 import javax.annotation.Resource;
 
 
+/**
+ * @author Elvan.bai
+ * @date 2023/7/16 09:49
+ */
 @Service
 @CatchAndLog
 public class BizRetryServiceImpl implements BizRetryServiceI {
@@ -32,8 +39,13 @@ public class BizRetryServiceImpl implements BizRetryServiceI {
     }
 
     @Override
-    public void updateRetry(BizRetryUpdateCmd bizRetryUpdateCmd) {
-        bizRetryUpdateCmdExe.execute(bizRetryUpdateCmd);
+    public Response updateRetry(BizRetryUpdateCmd bizRetryUpdateCmd) {
+        return bizRetryUpdateCmdExe.execute(bizRetryUpdateCmd);
+    }
+
+    @Override
+    public MultiResponse<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery) {
+        return bizRetryListQueryExe.execute(bizRetryListQuery);
     }
 
 

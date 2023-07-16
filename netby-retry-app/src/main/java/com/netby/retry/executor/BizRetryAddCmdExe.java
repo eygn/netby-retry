@@ -21,7 +21,7 @@ public class BizRetryAddCmdExe {
     private final BizRetryGateway bizRetryGateway;
 
     public Response execute(BizRetryAddCmd cmd) {
-        bizRetryGateway.add(BaseVO.copyTo(cmd.getBizRrtryDTO(), BizRetry.class));
+        bizRetryGateway.add(BaseVO.copyTo(cmd.getBizRetryDTO(), BizRetry.class));
         return Response.buildSuccess();
     }
 

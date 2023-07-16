@@ -1,22 +1,17 @@
-package com.netby.retry.domain.retry;
+package com.netby.retry.dto.data;
 
-
-import com.alibaba.cola.domain.Entity;
-import com.netby.common.vo.BaseVO;
 import lombok.Data;
 
-import java.util.Date;
+import java.io.Serializable;
 
 /**
- * 服务重试
- *
- * @author: Elvan.bai
- * @since 2023-06-17 17:09:48
+ * @author Elvan.bai
+ * @date 2023/7/16 09:52
  */
-@SuppressWarnings("serial")
 @Data
-@Entity
-public class BizRetry extends BaseVO {
+public class BizRetryDTO implements Serializable {
+
+    private static final long serialVersionUID = 996870170144647648L;
 
     private Integer id;
     /**
@@ -47,18 +42,4 @@ public class BizRetry extends BaseVO {
      * 备注
      */
     private String comment;
-    /**
-     * 创建时间
-     */
-    private Date created;
-    /**
-     * 修改时间
-     */
-    private Date modified;
-    /**
-     * 数据是否有效
-     */
-    private Integer flag;
-
 }
-
