@@ -3,7 +3,7 @@ package com.netby.retry.web;
 import com.netby.common.vo.PageResult;
 import com.netby.common.vo.Response;
 import com.netby.core.annotation.LogPrinter;
-import com.netby.retry.api.BizRetryServiceI;
+import com.netby.retry.api.BizRetryService;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
@@ -20,26 +20,27 @@ import org.springframework.web.bind.annotation.*;
  */
 @Slf4j
 @RestController
+@RequestMapping("/bizRetry")
 @RequiredArgsConstructor
 public class BizRetryController {
 
-    private final BizRetryServiceI bizRetryService;
+    private final BizRetryService bizRetryService;
 
     @LogPrinter
-    @PostMapping(value = "/bizretry")
+    @PostMapping("/add")
     public Response addBizRetry(@RequestBody BizRetryAddCmd bizRetryAddCmd) {
         return bizRetryService.addBizRetry(bizRetryAddCmd);
     }
 
     @LogPrinter
-    @PutMapping(value = "/bizretry")
+    @PutMapping("/update")
     public Response updateBizRetry(@RequestBody BizRetryUpdateCmd bizRetryUpdateCmd) {
         return bizRetryService.updateRetry(bizRetryUpdateCmd);
     }
 
-    @LogPrinter(ignoreResp = {"root"})
-    @PostMapping(value = "/bizretry/listByBizType")
-    PageResult<BizRetryDTO> listByBizType(@RequestBody BizRetryListQuery bizRetryListQuery) {
+    @LogPrinter(ignoreResp = {"records"})
+    @PostMapping("/queryList")
+    public PageResult<BizRetryDTO> queryList(@RequestBody BizRetryListQuery bizRetryListQuery) {
         return bizRetryService.listByBizType(bizRetryListQuery);
     }
 

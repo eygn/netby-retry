@@ -11,7 +11,7 @@ import com.netby.retry.dto.data.BizRetryDTO;
  * @author Elvan.bai
  * @date 2023/7/16 09:49
  */
-public interface BizRetryServiceI {
+public interface BizRetryService {
 
     /**
      * 新增重试
