@@ -27,6 +27,10 @@ spring:
         server-addr: 192.168.0.200:8848 # 主配置服务器地址
         group: DEFAULT_GROUP # 主配置 group-id  这里约定环境参数
         namespace: dev
+      discovery:
+        server-addr: 192.168.0.200:8848
+        group: DEFAULT_GROUP
+        namespace: dev
   config:
     import:
       - optional:nacos:mysql.yml

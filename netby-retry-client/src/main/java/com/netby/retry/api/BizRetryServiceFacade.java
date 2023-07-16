@@ -6,12 +6,16 @@ import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
 import com.netby.retry.dto.data.BizRetryDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 /**
  * @author Elvan.bai
  * @date 2023/7/16 09:49
  */
-public interface BizRetryService {
+@FeignClient(value = "netby-retry", contextId = "bizRetryServiceFacade")
+public interface BizRetryServiceFacade {
 
     /**
      * 新增重试
@@ -19,6 +23,7 @@ public interface BizRetryService {
      * @param bizRetryAddCmd
      * @return
      */
+    @PostMapping("/bizRetry/add")
     Response addBizRetry(BizRetryAddCmd bizRetryAddCmd);
 
     /**
@@ -27,6 +32,7 @@ public interface BizRetryService {
      * @param bizRetryUpdateCmd
      * @return
      */
+    @PutMapping("/bizRetry/update")
     Response updateRetry(BizRetryUpdateCmd bizRetryUpdateCmd);
 
     /**
@@ -35,6 +41,7 @@ public interface BizRetryService {
      * @param bizRetryListQuery
      * @return
      */
+    @PostMapping("/bizRetry/queryList")
     PageResult<BizRetryDTO> queryList(BizRetryListQuery bizRetryListQuery);
 
 }

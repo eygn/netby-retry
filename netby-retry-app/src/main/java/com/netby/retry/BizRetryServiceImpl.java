@@ -3,7 +3,7 @@ package com.netby.retry;
 import com.alibaba.cola.catchlog.CatchAndLog;
 import com.netby.common.vo.PageResult;
 import com.netby.common.vo.Response;
-import com.netby.retry.api.BizRetryService;
+import com.netby.retry.api.BizRetryServiceFacade;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
@@ -23,7 +23,7 @@ import javax.annotation.Resource;
  */
 @Service
 @CatchAndLog
-public class BizRetryServiceImpl implements BizRetryService {
+public class BizRetryServiceImpl implements BizRetryServiceFacade {
 
     @Resource
     private BizRetryAddCmdExe bizRetryAddCmdExe;

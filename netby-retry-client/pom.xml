@@ -23,6 +23,10 @@
             <artifactId>netby-common</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.netby</groupId>
+            <artifactId>netby-feign</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
         </dependency>
