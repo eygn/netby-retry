@@ -3,7 +3,7 @@ package com.netby.retry.dto.event;
 /**
  * BizRetryCreatedEvent
  *
- * @author baiyuangang
+ * @author Elvan.baiang
  * @date 2023/7/9 10:52
  */
 public class BizRetryCreatedEvent {

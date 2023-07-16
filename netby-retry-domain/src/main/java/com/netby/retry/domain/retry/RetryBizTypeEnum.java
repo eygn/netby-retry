@@ -3,7 +3,7 @@ package com.netby.retry.domain.retry;
 /**
  * 重试业务类型枚举
  *
- * @author: byg
+ * @author: Elvan.bai
  * @date 2023/3/27 16:04
  */
 public enum RetryBizTypeEnum {

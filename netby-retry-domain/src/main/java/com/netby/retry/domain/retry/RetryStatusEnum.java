@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * 重试状态枚举
  *
- * @author baiyg
+ * @author Elvan.bai
  * @date 2023/7/6 13:12
  */
 @Getter

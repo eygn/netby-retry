@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 服务重试表(BizRetry)表数据库访问层
  *
- * @author: byg
+ * @author: Elvan.bai
  * @since 2023-06-17 17:09:46
  */
 @Mapper

@@ -3,7 +3,7 @@ package com.netby.retry.domain.retry.gateway;
 import com.netby.retry.domain.retry.BizRetry;
 
 /**
- * @author baiyuangang
+ * @author Elvan.baiang
  * @date 2023/7/9 11:27
  */
 public interface BizRetryGateway {

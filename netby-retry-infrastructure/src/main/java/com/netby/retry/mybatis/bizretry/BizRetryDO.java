@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 服务重试表(BizRetry)表实体类
  *
- * @author: byg
+ * @author: Elvan.bai
  * @since 2023-06-17 17:09:48
  */
 @SuppressWarnings("serial")
