@@ -1,4 +1,4 @@
-package com.netby.retry.dto.event;
+package com.netby.retry.contants;
 
 /**
  * @author niexiaolong

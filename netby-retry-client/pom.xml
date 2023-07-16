@@ -20,7 +20,7 @@
         </dependency>-->
         <dependency>
             <groupId>com.netby</groupId>
-            <artifactId>netby-core</artifactId>
+            <artifactId>netby-common</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>

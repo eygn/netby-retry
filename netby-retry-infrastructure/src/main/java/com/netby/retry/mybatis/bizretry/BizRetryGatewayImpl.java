@@ -28,7 +28,7 @@ public class BizRetryGatewayImpl implements BizRetryGateway {
     }
 
     @Override
-    public PageResult<BizRetry> listByBizType(String bizType, QueryPage queryPage) {
+    public PageResult<BizRetry> queryList(String bizType, QueryPage queryPage) {
         LambdaQueryWrapper queryWrapper = new LambdaQueryWrapper<>(BizRetryDO.class).eq(BizRetryDO::getBizType, bizType);
         Page<BizRetryDO> page = bizRetryMapper.selectPage(new Page<>(queryPage.getPageNo(), queryPage.getPageSize()), queryWrapper);
         PageResult<BizRetry> pageResult = new PageResult<>();

@@ -1,12 +1,16 @@
-package com.netby.retry.dto.data;
+package com.netby.retry.enums;
 
-public enum ErrorCode{
+/**
+ * @author Elvan.bai
+ * @date 2023/7/16 14:03
+ */
+public enum ErrorCodeEnum {
     B_CUSTOMER_companyNameConflict("B_CUSTOMER_companyNameConflict", "客户公司名冲突");
 
     private final String errCode;
     private final String errDesc;
 
-    private ErrorCode(String errCode, String errDesc) {
+    ErrorCodeEnum(String errCode, String errDesc) {
         this.errCode = errCode;
         this.errDesc = errDesc;
     }

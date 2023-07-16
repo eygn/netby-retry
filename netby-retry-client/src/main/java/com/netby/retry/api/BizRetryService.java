@@ -35,6 +35,6 @@ public interface BizRetryService {
      * @param bizRetryListQuery
      * @return
      */
-    PageResult<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery);
+    PageResult<BizRetryDTO> queryList(BizRetryListQuery bizRetryListQuery);
 
 }

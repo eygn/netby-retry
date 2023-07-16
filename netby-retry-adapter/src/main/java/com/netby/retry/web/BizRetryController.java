@@ -41,7 +41,7 @@ public class BizRetryController {
     @LogPrinter(ignoreResp = {"records"})
     @PostMapping("/queryList")
     public PageResult<BizRetryDTO> queryList(@RequestBody BizRetryListQuery bizRetryListQuery) {
-        return bizRetryService.listByBizType(bizRetryListQuery);
+        return bizRetryService.queryList(bizRetryListQuery);
     }
 
 }

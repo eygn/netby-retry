@@ -22,9 +22,10 @@ public interface BizRetryGateway {
      * 根据业务类型查询
      *
      * @param bizType
+     * @param queryPage
      * @return
      */
-    PageResult<BizRetry> listByBizType(String bizType, QueryPage queryPage);
+    PageResult<BizRetry> queryList(String bizType, QueryPage queryPage);
 
     /**
      * 更新重试

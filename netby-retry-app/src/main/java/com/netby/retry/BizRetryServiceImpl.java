@@ -44,7 +44,7 @@ public class BizRetryServiceImpl implements BizRetryService {
     }
 
     @Override
-    public PageResult<BizRetryDTO> listByBizType(BizRetryListQuery bizRetryListQuery) {
+    public PageResult<BizRetryDTO> queryList(BizRetryListQuery bizRetryListQuery) {
         return bizRetryListQueryExe.execute(bizRetryListQuery);
     }
 

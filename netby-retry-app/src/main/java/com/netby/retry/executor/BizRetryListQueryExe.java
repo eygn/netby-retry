@@ -22,7 +22,7 @@ public class BizRetryListQueryExe {
     private final BizRetryGateway bizRetryGateway;
 
     public PageResult<BizRetryDTO> execute(BizRetryListQuery cmd) {
-        PageResult<BizRetry> bizRetryPageResult = bizRetryGateway.listByBizType(cmd.getBizType(), cmd);
+        PageResult<BizRetry> bizRetryPageResult = bizRetryGateway.queryList(cmd.getBizType(), cmd);
         return PageResult.of(bizRetryPageResult, BizRetryDTO.class);
     }
 }
