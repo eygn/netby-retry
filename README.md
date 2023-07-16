@@ -1,4 +1,10 @@
 # netby-retry
 
-基于cola4生成的ddd模式实践的重试组件
+基于ddd模式实践的重试组件
+* cola4
+* tlog
+* TTL TransmittableThreadLocal
+* spring-cloud-nacos
+* feign
+
 
