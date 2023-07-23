@@ -1,8 +1,10 @@
 package com.netby.retry;
 
+import com.netby.common.state.CommonStateCode;
 import com.netby.common.vo.PageResult;
 import com.netby.common.vo.Response;
 import com.netby.core.lock.NetbyLock;
+import com.netby.core.mock.RpcInvokeWrapper;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
@@ -33,7 +35,20 @@ public class BizRetryService {
 
     @NetbyLock("#bizRetryAddCmd.bizRetryDTO.bizNo+'-'+#bizRetryAddCmd.bizRetryDTO.retryType")
     public Response addBizRetry(BizRetryAddCmd bizRetryAddCmd) {
-        return bizRetryAddCmdExe.execute(bizRetryAddCmd);
+
+        return new RpcInvokeWrapper<BizRetryDTO>(){
+            @Override
+            public String getKey() {
+                return "/bizRetry/add";
+            }
+
+            @Override
+            public Response<BizRetryDTO> doInvoke() {
+                return Response.failed(CommonStateCode.FAILED);
+            }
+        }.supportDevMode(BizRetryDTO.class).invoke();
+
+//        return bizRetryAddCmdExe.execute(bizRetryAddCmd);
     }
 
     @NetbyLock("#bizRetryAddCmd.bizRetryDTO.id")

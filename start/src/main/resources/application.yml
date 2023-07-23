@@ -4,6 +4,9 @@ server:
 netby:
   log:
     enable: true
+  mock:
+    enable: true
+    base_url: https://www.fastmock.site/mock/4c60e5f789a1faf3e7409508ab5b087e/feign_mock
 
 spring:
   profiles:
