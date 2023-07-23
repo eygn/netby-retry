@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  * @author Elvan.bai
  * @date 2023/7/16 09:49
  */
-//@FeignClient(value = "netby-retry", contextId = "bizRetryServiceFacade")
+@FeignClient(value = "netby-retry", contextId = "bizRetryServiceFacade")
 public interface BizRetryServiceFacade {
 
     /**

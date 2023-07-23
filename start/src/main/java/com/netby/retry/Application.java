@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  *
  * @author Frank Zhang
  */
-@EnableFeignClients(basePackages = {"com.netby"})
+@EnableFeignClients(basePackages = {"com.netby.retry.api"})
 @SpringBootApplication(scanBasePackages = {"com.netby", "com.alibaba.cola"})
 public class Application {
 

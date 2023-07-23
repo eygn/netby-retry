@@ -3,7 +3,7 @@ package com.netby.retry.web;
 import com.netby.common.vo.PageResult;
 import com.netby.common.vo.Response;
 import com.netby.core.annotation.LogPrinter;
-import com.netby.retry.api.BizRetryServiceFacade;
+import com.netby.retry.BizRetryService;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
 import com.netby.retry.dto.BizRetryUpdateCmd;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class BizRetryController {
 
-    private final BizRetryServiceFacade bizRetryService;
+    private final BizRetryService bizRetryService;
 
     @LogPrinter
     @PostMapping("/add")
