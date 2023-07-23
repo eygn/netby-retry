@@ -3,6 +3,7 @@ package com.netby.retry;
 import com.alibaba.cola.catchlog.CatchAndLog;
 import com.netby.common.vo.PageResult;
 import com.netby.common.vo.Response;
+import com.netby.core.lock.NetbyLock;
 import com.netby.retry.api.BizRetryServiceFacade;
 import com.netby.retry.dto.BizRetryAddCmd;
 import com.netby.retry.dto.BizRetryListQuery;
@@ -34,6 +35,7 @@ public class BizRetryServiceImpl implements BizRetryServiceFacade {
     @Resource
     private BizRetryListQueryExe bizRetryListQueryExe;
 
+    @NetbyLock("#bizRetryAddCmd.bizRetryDTO.bizNo+'-'+#bizRetryAddCmd.bizRetryDTO.retryType")
     public Response addBizRetry(BizRetryAddCmd bizRetryAddCmd) {
         return bizRetryAddCmdExe.execute(bizRetryAddCmd);
     }
