@@ -35,12 +35,14 @@ public class BizRetryServiceImpl implements BizRetryServiceFacade {
     @Resource
     private BizRetryListQueryExe bizRetryListQueryExe;
 
+    @Override
     @NetbyLock("#bizRetryAddCmd.bizRetryDTO.bizNo+'-'+#bizRetryAddCmd.bizRetryDTO.retryType")
     public Response addBizRetry(BizRetryAddCmd bizRetryAddCmd) {
         return bizRetryAddCmdExe.execute(bizRetryAddCmd);
     }
 
     @Override
+    @NetbyLock("#bizRetryAddCmd.bizRetryDTO.id")
     public Response updateRetry(BizRetryUpdateCmd bizRetryUpdateCmd) {
         return bizRetryUpdateCmdExe.execute(bizRetryUpdateCmd);
     }
