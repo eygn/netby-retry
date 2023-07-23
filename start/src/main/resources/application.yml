@@ -34,9 +34,7 @@ spring:
   config:
     import:
       - optional:nacos:mysql.yml
-  redis:
-    host: 192.168.0.200
-    port: 6379
+      - optional:nacos:redis.yml
 
 # mybatis 配置
 mybatis-plus:
