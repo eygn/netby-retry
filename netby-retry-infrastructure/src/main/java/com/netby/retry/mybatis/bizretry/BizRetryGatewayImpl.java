@@ -10,8 +10,6 @@ import com.netby.retry.domain.retry.gateway.BizRetryGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * @author Elvan.bai
  * @date 2023/7/16 10:05
