@@ -43,7 +43,7 @@ public class GlobalConsumerFilter {
                 }
                 if (result instanceof Response && ((Response) result).isFailed()) {
                     if (((Response) result).isFailed()) {
-                        Response response = HttpFastMock.getMockResponse(signatureName);
+                        Response response = HttpFastMock.mockResponse(signatureName);
                         if (response != null && response.isSuccess()) {
                             return response;
                         }
