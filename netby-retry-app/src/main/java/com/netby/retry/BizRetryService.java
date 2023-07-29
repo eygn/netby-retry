@@ -37,8 +37,8 @@ public class BizRetryService {
 
     @NetbyLock("#bizRetryAddCmd.bizRetryDTO.bizNo+'-'+#bizRetryAddCmd.bizRetryDTO.retryType")
     public Response addBizRetry(BizRetryAddCmd bizRetryAddCmd) {
-        return thirdLogFacadeIntegration.addBizRetry(bizRetryAddCmd);
-//        return bizRetryAddCmdExe.execute(bizRetryAddCmd);
+//        return thirdLogFacadeIntegration.addBizRetry(bizRetryAddCmd);
+        return bizRetryAddCmdExe.execute(bizRetryAddCmd);
     }
 
     @NetbyLock("#bizRetryAddCmd.bizRetryDTO.id")
